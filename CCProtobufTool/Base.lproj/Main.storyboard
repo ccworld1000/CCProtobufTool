@@ -784,7 +784,7 @@
                                             <tableColumns>
                                                 <tableColumn width="676" minWidth="40" maxWidth="1000" id="uaX-Pw-eCf">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Select the corresponding language ">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -844,11 +844,14 @@
                                 </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rI0-Xi-gYz">
-                                <rect key="frame" x="282" y="15" width="118" height="32"/>
-                                <buttonCell key="cell" type="push" title="Generate file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aoa-kK-Vkq">
+                                <rect key="frame" x="283" y="15" width="116" height="32"/>
+                                <buttonCell key="cell" type="push" title="generate file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aoa-kK-Vkq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="generateFileHandle:" target="XfG-lQ-9wD" id="Fbm-oa-dmT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

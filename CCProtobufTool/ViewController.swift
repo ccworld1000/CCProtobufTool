@@ -14,7 +14,24 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     var dataList = ["cpp",  "csharp", "java", "js", "objc", "php", "python", "ruby"]
     
-
+    var selectLanguage: String?
+    
+    
+    @IBAction func generateFileHandle(_ sender: Any) {
+        if list.selectedRow < 0 {
+            let alert = NSAlert()
+            alert.alertStyle = .informational
+            alert.addButton(withTitle: "OK")
+            alert.informativeText = "Select the corresponding language"
+            alert.runModal()
+            return
+        }
+        
+        if let language = selectLanguage {
+            print(language)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,5 +53,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
         return nil
     }
-
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        if let table = notification.object as? NSTableView {
+            let selectedRow = table.selectedRow
+            if selectedRow < dataList.count {
+                selectLanguage = dataList[selectedRow]
+            }
+        }
+    }
 }
