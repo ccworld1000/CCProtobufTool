@@ -16,19 +16,23 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     var selectLanguage: String?
     
+    func alert(_ info: String) {
+        let alert = NSAlert()
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+        alert.informativeText = info
+        alert.runModal()
+    }
+    
     
     @IBAction func generateFileHandle(_ sender: Any) {
         if list.selectedRow < 0 {
-            let alert = NSAlert()
-            alert.alertStyle = .informational
-            alert.addButton(withTitle: "OK")
-            alert.informativeText = "Select the corresponding language"
-            alert.runModal()
+            alert("Select the corresponding language!")
             return
         }
         
         if let language = selectLanguage {
-            print(language)
+            alert("It's still being update! generate file for " + language)
         }
     }
     

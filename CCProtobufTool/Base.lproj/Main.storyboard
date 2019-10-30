@@ -732,20 +732,22 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Plf-cY-9rt">
-                                <rect key="frame" x="3" y="296" width="101" height="21"/>
+                                <rect key="frame" x="3" y="296" width="104" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FHp-zm-EKn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Rtu-Gt-2gK"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="proto source dir" id="aGw-NM-ee8">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="proto source file" id="aGw-NM-ee8">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qnf-9W-0Ub">
-                                <rect key="frame" x="3" y="255" width="100" height="21"/>
+                                <rect key="frame" x="3" y="255" width="104" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8Ro-Aw-jn0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Svt-3o-g7s"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="proto output dir" id="v7q-TH-EqQ">
                                     <font key="font" metaFont="system"/>
@@ -754,7 +756,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="io7-d9-M3H">
-                                <rect key="frame" x="112" y="296" width="518" height="21"/>
+                                <rect key="frame" x="115" y="296" width="515" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="WyG-HC-mQR">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -762,7 +764,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="26b-4w-hFC">
-                                <rect key="frame" x="111" y="255" width="519" height="21"/>
+                                <rect key="frame" x="115" y="255" width="515" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="T2E-je-2sL">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -784,7 +786,7 @@
                                             <tableColumns>
                                                 <tableColumn width="676" minWidth="40" maxWidth="1000" id="uaX-Pw-eCf">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Select the corresponding language ">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
