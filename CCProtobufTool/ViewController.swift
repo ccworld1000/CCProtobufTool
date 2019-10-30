@@ -8,20 +8,33 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+    
+    @IBOutlet weak var list: NSTableView!
+    
+    var dataList = ["cpp",  "csharp", "java", "js", "objc", "php", "python", "ruby"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return dataList.count
     }
 
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        if let cell = tableView.makeView(withIdentifier: .init("CellID"), owner: nil) as? NSTableCellView {
+            if row < dataList.count {
+                cell.textField?.stringValue = dataList[row]
+            }
+
+            return cell
+        }
+
+        return nil
+    }
 
 }
-
