@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -719,6 +719,9 @@
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="chooseFileHandle:" target="XfG-lQ-9wD" id="kYT-qu-XXa"/>
+                                </connections>
                             </button>
                             <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w7T-0V-buV">
                                 <rect key="frame" x="637" y="250" width="27" height="26"/>
@@ -730,6 +733,9 @@
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="chooseDirHandle:" target="XfG-lQ-9wD" id="6NC-hB-p5D"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Plf-cY-9rt">
                                 <rect key="frame" x="3" y="296" width="104" height="21"/>
@@ -786,7 +792,6 @@
                                             <tableColumns>
                                                 <tableColumn width="676" minWidth="40" maxWidth="1000" id="uaX-Pw-eCf">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Select the corresponding language ">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -880,6 +885,10 @@
                     </view>
                     <connections>
                         <outlet property="list" destination="hwD-jw-tF4" id="Ldp-3o-DFM"/>
+                        <outlet property="outputDirTextField" destination="26b-4w-hFC" id="frS-mb-180"/>
+                        <outlet property="outputDirTips" destination="qnf-9W-0Ub" id="xfi-5P-hUH"/>
+                        <outlet property="sourceFileTextField" destination="io7-d9-M3H" id="Qxw-hc-eeR"/>
+                        <outlet property="sourceFileTips" destination="Plf-cY-9rt" id="gfL-8g-gum"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

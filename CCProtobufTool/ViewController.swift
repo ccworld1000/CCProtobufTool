@@ -10,29 +10,86 @@ import Cocoa
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
+    @IBOutlet weak var sourceFileTips: NSTextField!
+    @IBOutlet weak var sourceFileTextField: NSTextField!
+    @IBOutlet weak var outputDirTips: NSTextField!
+    @IBOutlet weak var outputDirTextField: NSTextField!
     @IBOutlet weak var list: NSTableView!
     
+    var sourceFileDirURL: URL?
+    var selectLanguage: String?
     var dataList = ["cpp",  "csharp", "java", "js", "objc", "php", "python", "ruby"]
     
-    var selectLanguage: String?
-    
-    func alert(_ info: String) {
-        let alert = NSAlert()
-        alert.alertStyle = .informational
-        alert.addButton(withTitle: "OK")
-        alert.informativeText = info
-        alert.runModal()
+    @IBAction func chooseFileHandle(_ sender: NSButton) {
+        let openPanel = NSOpenPanel()
+        openPanel.prompt = "Choose Proto File"
+        openPanel.canChooseFiles = true
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = true
+        openPanel.beginSheetModal(for: view.window!) { [weak self] (result) in
+            if result == .OK {
+                let directoryURL = openPanel.directoryURL
+                self?.sourceFileDirURL = directoryURL
+                
+                if let path = openPanel.url?.path {
+                    self?.sourceFileTextField.stringValue = path
+                } else {
+                    print("get path error!")
+                }
+            }
+            
+            sender.state = .off
+        }
     }
     
+    @IBAction func chooseDirHandle(_ sender: NSButton) {
+        let openPanel = NSOpenPanel()
+        openPanel.prompt = "Choose Output Dir"
+        openPanel.canChooseFiles = false
+        openPanel.canChooseDirectories = true
+        openPanel.canCreateDirectories = true
+        openPanel.beginSheetModal(for: view.window!) { [weak self] (result) in
+            if result == .OK {
+                if let path = openPanel.directoryURL?.path {
+                    self?.outputDirTextField.stringValue = path
+                    print(type(of: path))
+                } else {
+                    print("get path error!")
+                }
+            }
+            
+            sender.state = .off
+        }
+    }
     
     @IBAction func generateFileHandle(_ sender: Any) {
-        if list.selectedRow < 0 {
-            alert("Select the corresponding language!")
-            return
-        }
+//        if sourceFileTextField.stringValue.count < 3 {
+//            alert("You must select " + sourceFileTips.stringValue)
+//            return
+//        }
+//
+//        if outputDirTextField.stringValue.count < 3 {
+//            alert("You must select " + outputDirTips.stringValue)
+//            return
+//        }
+//
+//        if list.selectedRow < 0 {
+//            alert("Select the corresponding language!")
+//            return
+//        }
+        
+        print("list.selectedRow -> \(list.selectedRow)")
+        
+        let index = list.selectedRow;
         
         if let language = selectLanguage {
-            alert("It's still being update! generate file for " + language)
+            print(sourceFileDirURL?.baseURL)
+            
+            var optionOut = dataList[0];
+            
+            if index < dataList.count {
+                optionOut = dataList[index];
+            }
         }
     }
     
@@ -65,5 +122,24 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 selectLanguage = dataList[selectedRow]
             }
         }
+    }
+}
+
+
+extension ViewController {
+    func alert(_ info: String) {
+        let alert = NSAlert()
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+        alert.informativeText = info
+        alert.runModal()
+    }
+    
+    @discardableResult
+    func runCommand(launchPath: String, arguments: [String]) -> Int32 {
+        let task = Process.launchedProcess(launchPath: launchPath, arguments: arguments)
+        task.waitUntilExit()
+    
+        return task.terminationStatus
     }
 }

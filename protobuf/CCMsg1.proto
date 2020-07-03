@@ -1,0 +1,19 @@
+//
+//  CCMsg.proto
+//  just for test
+//
+//  Created by CC on 2019/10/30.
+//  Copyright © 2019 CC (deng you hua | cworld1000@gmail.com). All rights reserved.
+//
+
+syntax =  "proto3";
+
+package proto.object;
+
+option java_package = "com.cc.test";
+
+message CCMsg {
+  int64 id = 1;
+  string msg = 2;
+  string otherMsg = 3;
+}
